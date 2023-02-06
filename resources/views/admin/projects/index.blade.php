@@ -17,6 +17,7 @@
                     <p class="card-text">{{$project->description}}</p>
                     <a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-primary">Modifica</a>
                     <a href="{{route('admin.projects.show', $project->id)}}" class="btn btn-primary">Apri</a>
+                    <a href="" class="btn btn-danger">Cancella</a>
                 </div>
             </div>
         </div>
