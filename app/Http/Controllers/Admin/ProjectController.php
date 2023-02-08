@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -39,11 +41,21 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
+        $data = $request->validated();
+        //$data = $request->validate([
+        //    "name"=>"required|string|min:3",
+        //    "description"=>"required|string|min:10",
+        //    "cover_img"=>"nullable|image",
+        //    "github_link"=>"nullable|string|url",
+        //]);
+
         $data = $request -> all();
 
         $path = Storage::put("projects_thumb", $data["cover_img"]);
+        //if (key_exists("cover_img", $data)) {}
+
 
         $projects = Project::create([
             ...$data,
@@ -84,8 +96,15 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProjectRequest $request, $id)
     {
+        $data = $request->validated();
+        //$data = $request->validate([
+        //    "name"=>"required|string|min:3",
+        //    "description"=>"required|string|min:10",
+        //    "cover_img"=>"nullable|image",
+        //    "github_link"=>"nullable|string|url",
+        //]);
         $project = Project::findOrFail($id);
         $data = $request -> all();
         $project->update($data);
@@ -101,6 +120,9 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
+        //if ($project->cover_img) {
+        //    Storage::delete($project->cover_img);
+        //}
         return redirect() -> route("admin.projects.index");
     }
 }

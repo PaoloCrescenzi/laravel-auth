@@ -13,8 +13,8 @@
     <div class="row row-cols-1 row-cols-md-2 g-4">
         @foreach ($projects as $project)
         <div class="col">
-            <div class="card">
-                <img src="{{$project->cover_img}}" class="card-img-top" alt="...">
+            <div class="card d-flex">
+                <img class="mr-3 img-thumbnail rounded" src="{{ asset('/storage/' . $project->cover_img)}}" alt="Generic placeholder image">
                 <div class="card-body">
                     <h5 class="card-title">{{$project->name}}</h5>
                     <p class="card-text">{{$project->description}}</p>

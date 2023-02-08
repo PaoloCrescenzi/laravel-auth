@@ -4,7 +4,7 @@
 <div class="container">
     <ul class="list-unstyled">
         <li class="media">
-            <img class="mr-3" src="{{ asset('/storage/projects_thumb' . $project->cover_img) }}" alt="Generic placeholder image">
+            <img class="mr-3 img-thumbnail rounded" src="{{ asset('/storage/' . $project->cover_img)}}">
             <div class="media-body">
                 <h1 class="mt-0 mb-1">Progetto N.{{$project->id}}</h1>
                 <p class="card-text">Descrizione: {{$project->description}}</p>
