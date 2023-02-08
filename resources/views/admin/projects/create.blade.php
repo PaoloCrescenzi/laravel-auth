@@ -6,7 +6,7 @@
         <div class="text-center p-2">
             <h1>Nuovo progetto</h1>
         </div>
-        <form action="{{route('admin.projects.store')}}" method="POST">
+        <form action="{{route('admin.projects.store')}}" method="POST" enctype='multipart/form-data'>
             @csrf
 
             <label class="form-label">Title: </label>
