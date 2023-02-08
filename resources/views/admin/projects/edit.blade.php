@@ -17,7 +17,7 @@
             <input type="text" name="description" class="form-control" value="{{$project->description}}">
 
             <label class="form-label">Thumb: </label>
-            <input type="text" name="cover_img" class="form-control" value="{{$project->cover_img}}">
+            <input type="file" name="cover_img" class="form-control" value="{{$project->cover_img}}">
 
             <label class="form-label">GitHub: </label>
             <input type="text" name="github_link" class="form-control" value="{{$project->github_link}}">

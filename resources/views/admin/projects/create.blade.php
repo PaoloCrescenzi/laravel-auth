@@ -16,7 +16,7 @@
             <input type="text" name="description" class="form-control">
 
             <label class="form-label">Thumb: </label>
-            <input type="text" name="cover_img" class="form-control">
+            <input type="file" name="cover_img" class="form-control">
 
             <label class="form-label">GitHub: </label>
             <input type="text" name="github_link" class="form-control">

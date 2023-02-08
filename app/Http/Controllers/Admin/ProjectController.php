@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -42,9 +43,12 @@ class ProjectController extends Controller
     {
         $data = $request -> all();
 
+        $path = Storage::put("projects_thumb", $data["cover_img"]);
+
         $projects = Project::create([
             ...$data,
-            "cover_img" => $data["cover_img"] ?? " "
+            "cover_img" => $path,
+            //"cover_img" => $data["cover_img"] ?? " "
         ]);
         return redirect() -> route("admin.projects.show", $projects -> id);
     }

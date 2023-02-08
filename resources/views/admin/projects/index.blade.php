@@ -4,8 +4,10 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center">
         <h1>Tutti i progetti</h1>
-        <a href="{{route('admin.projects.create')}}"><button class="btn btn-primary"><i
-                    class="fa-solid fa-plus"></i></button></a>
+        <div>
+            <a href="{{route('admin.projects.create')}}"><button class="btn btn-primary"><i class="fa-solid fa-plus"></i></button></a>
+            <a href="/"><button class="btn btn-primary"><i class="fa-solid fa-house"></i></button></a>
+        </div>
     </div>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
